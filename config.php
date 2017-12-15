@@ -20,7 +20,7 @@ $config['BotName'] = rawurlencode("Channel Bot"); //url encoded bot name
 
 $config['ChannelToJoin'] = 37; //user joins channel and gets channel
 $config['ChannelToBeSub'] = 36; //top channel of the created channel
-$config['TSDomain'] = "ts.rsag.co.za"; //for the link could be ip
+$config['TSDomain'] = "197.97.229.48"; //for the link could be ip
 $config['ChannelAdmin'] = 5; //channeladmin group
 $config['ServerGroupToIgnore'] = "12"; //as the be a string for strpos
 /* TeamSpeak Settings */

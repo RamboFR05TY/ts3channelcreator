@@ -63,7 +63,11 @@ function channelCreation($client, $config , $ts3)
 	echo '[URL=client://' . $client['clid'] . '/' . $client['client_unique_identifier'] . '~' . rawurlencode($client['client_nickname']) . ']' . $client['client_nickname']. '[/URL]';
     $client->move($cid);
     $client->setChannelGroup($cid, $config['ChannelAdmin']);
-    $client->message("Hello " . $client['client_nickname'] . ".\n This Channel was created for you and your Friends. It's Password is: [B][ " . $pass . " ][/B]. \n\n If you wish to invite anyone to your Channel, give them this link: \n Invitation-Link:  [URL=" . $link . "] Invitation-Link [/URL] \n Alternative link if the link above doesn't work: [url=" . $alternativeLink . "] Alternative Invitation-Link [/url] \n\n Enjoy your Stay here.");
+    $client->message("Hello " . $client['client_nickname'] . 
+    ".\n This Channel was created for you and your Friends. It's Password is: [B][ " . $pass . " ][/B]. 
+    \n\n If you wish to invite anyone to your Channel, give them this link: 
+    \n Invitation-Link:  [URL=" . $link . "] Invitation-Link[/URL] Right Click me and Say Copy Link to clipboard   
+    \n\n Enjoy your Stay here.");
     }
 
 function randomString($length = 12)
