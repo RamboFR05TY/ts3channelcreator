@@ -51,7 +51,7 @@ function channelCreation($client, $config , $ts3)
     $clientip = $client['connection_client_ip'];
     $link = "ts3server://{$config['TSDomain']}?port={$config['sPort']}&channel=" . rawurlencode($channel) . "&channepassword={$pass}";
     $alternativeLink = "ts3server://" . $config['TSDomain'] . "?port=" . $config['sPort'] . "&channel=".urlencode($channel) . "&channelpassword=" . $pass;
-
+//Create Primary Channel
     $cid = $ts3->channelCreate([
         "channel_name" => $channelname,
         "channel_password" => $pass,
@@ -60,6 +60,31 @@ function channelCreation($client, $config , $ts3)
         "cpid" => $config['ChannelToBeSub']
 
     ]);
+
+//Creating Sub Channel 1
+    $scid = $ts3->channelCreate([
+        "channel_name" => "Sub 1",
+        "channel_password" => $pass,
+        "channel_flag_permanent" => "1",
+        "channel_description" => '[center][b][u]' . $client['client_nickname'] . "'s Channel" . '[/u][/b][/center][hr][b][list][*]Date: ' . date("[d-m-Y - H:i:s]", time()) . '[*]Owner:  [URL=client://' . $client['clid'] . '/' . $client['client_unique_identifier'] . '~' . rawurlencode($client['client_nickname']) . ']' . $client['client_nickname']. '[/URL] [/list][/b]',    
+        "cpid" => $cid
+    ]);
+//Creating Sub Channel 2
+    $scid = $ts3->channelCreate([
+    "channel_name" => "Sub 2",
+    "channel_password" => $pass,
+    "channel_flag_permanent" => "1",
+    "channel_description" => '[center][b][u]' . $client['client_nickname'] . "'s Channel" . '[/u][/b][/center][hr][b][list][*]Date: ' . date("[d-m-Y - H:i:s]", time()) . '[*]Owner:  [URL=client://' . $client['clid'] . '/' . $client['client_unique_identifier'] . '~' . rawurlencode($client['client_nickname']) . ']' . $client['client_nickname']. '[/URL] [/list][/b]',    
+    "cpid" => $cid
+    ]);
+//Creating Sub Channel 3
+$scid = $ts3->channelCreate([
+    "channel_name" => "Sub 3",
+    "channel_password" => $pass,
+    "channel_flag_permanent" => "1",
+    "channel_description" => '[center][b][u]' . $client['client_nickname'] . "'s Channel" . '[/u][/b][/center][hr][b][list][*]Date: ' . date("[d-m-Y - H:i:s]", time()) . '[*]Owner:  [URL=client://' . $client['clid'] . '/' . $client['client_unique_identifier'] . '~' . rawurlencode($client['client_nickname']) . ']' . $client['client_nickname']. '[/URL] [/list][/b]',    
+    "cpid" => $cid
+]);
 	echo '[URL=client://' . $client['clid'] . '/' . $client['client_unique_identifier'] . '~' . rawurlencode($client['client_nickname']) . ']' . $client['client_nickname']. '[/URL]';
     $client->move($cid);
     $client->setChannelGroup($cid, $config['ChannelAdmin']);
