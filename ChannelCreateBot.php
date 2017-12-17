@@ -69,7 +69,6 @@ function channelCreation($client, $config , $ts3)
     \n Invitation-Link:  [URL=" . $link . "] Invitation-Link[/URL] Right Click me and Say Copy Link to clipboard   
     \n\n Enjoy your Stay here.");
     }
-
 function randomString($length = 12)
 {
     $str = "";
